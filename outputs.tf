@@ -1,3 +1,3 @@
 output "ip" {
-  value = module.my_instance.instanceip
+  value = module.my_instance.instance_ip
 }
