@@ -1,8 +1,7 @@
-resource "google_compute_instance" "temp-instance" {
-  name         = "terraform-instance"
+resource "google_compute_instance" "cassandra-instance" {
   machine_type = "e2-standard-2"
+  name         = "cassandra-instance"
 #  zone         = "europe-west9-a"
-  tags = ["cassandra"]
 
   boot_disk {
     initialize_params {
@@ -11,7 +10,6 @@ resource "google_compute_instance" "temp-instance" {
     }
   }
   network_interface {
-    # A default network is created for all GCP projects
     network = "default"
     access_config {
       network_tier = "PREMIUM"
@@ -19,10 +17,9 @@ resource "google_compute_instance" "temp-instance" {
   }
   metadata = {
     ssh-keys       = "oubay:${file("ssh-key.pub")}",
-    startup-script = "${file("scripts/kubernetes.sh")}"
+    startup-script = "${file("scripts/cassandra.sh")}"
   }
-
 }
-output "instance_ip" {
-  value = google_compute_instance.temp-instance.network_interface.0.access_config.0.nat_ip
+output "cassandra_ip" {
+  value = google_compute_instance.cassandra-instance.network_interface.0.access_config.0.nat_ip
 }
