@@ -16,7 +16,6 @@ resource "google_compute_instance" "cassandra-instance" {
     }
   }
   metadata = {
-    ssh-keys       = "oubay:${file("ssh-key.pub")}",
     startup-script = "${file("scripts/cassandra.sh")}"
   }
 }
