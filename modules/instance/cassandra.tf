@@ -2,7 +2,7 @@ resource "google_compute_instance" "cassandra-instance" {
   machine_type = "e2-standard-2"
   name         = "cassandra-instance"
 #  zone         = "europe-west9-a"
-
+  tags = ["cassandra"]
   boot_disk {
     initialize_params {
       image = "debian-cloud/debian-11"

@@ -30,7 +30,7 @@ sudo -u oubay -H sh -c 'sudo bash ./get_helm.sh';
 echo "installed helm" >>/home/oubay/output.txt 2>&1;
 sudo -u oubay -H sh -c 'helm repo add bitnami https://charts.bitnami.com/bitnami';
 echo "added bitnami repo" >>/home/oubay/output.txt 2>&1;
-sudo -u oubay -H sh -c 'helm install my-release bitnami/kafka',
+sudo -u oubay -H sh -c 'helm install my-release bitnami/kafka';
 echo "installed kafka" >>/home/oubay/output.txt 2>&1;
 
 #sudo -i -u oubay bash <<EOF

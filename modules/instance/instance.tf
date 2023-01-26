@@ -2,7 +2,7 @@ resource "google_compute_instance" "temp-instance" {
   name         = "terraform-instance"
   machine_type = "e2-standard-2"
 #  zone         = "europe-west9-a"
-  tags = ["cassandra"]
+
 
   boot_disk {
     initialize_params {
